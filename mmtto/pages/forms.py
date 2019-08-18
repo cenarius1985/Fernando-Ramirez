@@ -10,8 +10,8 @@ class PageForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Título'}),
             'content': forms.Textarea(attrs={'class':'form-control'}),
             'order': forms.NumberInput(attrs={'class':'form-control', 'placeholder':'Orden  '}),
-            'image': forms.ImageField(),
+            
         }
         labels = {
-            'title':'', 'order':'', 'content': '', 'image': ''
+            'title':'', 'order':'', 'content': '', 
         }

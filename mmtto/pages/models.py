@@ -5,7 +5,7 @@ class Page(models.Model):
     title = models.CharField(verbose_name="Título", max_length=200)
     content = RichTextField(verbose_name="Contenido")
     order = models.SmallIntegerField(verbose_name="Orden", default=0)
-    image = models.ImageField(upload_to='Pages')
+    image = models.ImageField(upload_to='Pages/',verbose_name="imagen", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
