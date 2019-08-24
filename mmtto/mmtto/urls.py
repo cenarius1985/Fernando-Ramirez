@@ -19,10 +19,14 @@ from pages.urls import pages_patterns
 from profiles.urls import profiles_patterns
 from messenger.urls import messenger_patterns
 from django.conf import settings
+from monitoreo.urls import monitores_patterns
 
 urlpatterns = [
     path('', include('core.urls')),
+    path('', include('inventario.urls')),
     path('pages/', include(pages_patterns)),
+    # Paths de Formulario Monitores
+    path('monitores/', include(monitores_patterns)),
     path('admin/', admin.site.urls),
     # Paths de Auth
     path('accounts/', include('django.contrib.auth.urls')),

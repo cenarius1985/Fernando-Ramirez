@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
+<div class="container">
+  <div style="padding-top:50px; text-align:center;">
+       <h1>PAUTAS DE MANTENIMIENTO PREVENTIVO</h1>
+   </div> 
+  <div class="container">
+       <div class="row text-center">
+         <table width="100%" border="2">
+           <tbody>
+                <tr>
+               <th scope="row" bgcolor="#00FF00" >Detalle</th>
+					   <td bgcolor="#00FF00"><b>Fecha de Mantenimiento</b></td>
+                  <td bgcolor="#00FF00"><b>Servicio</b></td>
+                  <td bgcolor="#00FF00"><b>Nombre Equipo</b></td>
+                  <td bgcolor="#00FF00"><b>Marca</b></td>
+                  <td bgcolor="#00FF00"><b>Modelo</b></td>
+                  <td bgcolor="#00FF00"><b>N° Inventario</b></td>
+                  <td bgcolor="#00FF00"><b>N° Serie</b></td>               
+				   </tr>
+               {% for article in object_list|dictsort:"id" reversed %}
+               <tr>
+               <th scope="row"><a href="{% url 'monitores:monitor' article.id article.nombre|slugify %}">Ver</a></th>
+					   <td>{{article.fecha|date}}</td>
+                  <td>{{article.servicio}}</td>
+                  <td>{{article.nombre}}</td>
+                  <td>{{article.marca}}</td>
+                  <td>{{article.modelo}}</td>
+                  <td>{{article.inventario}}</td>
+                  <td>{{article.serie}}</td>               
+				   </tr>
+               {% empty %}
+                  <li>No articles yet.</li>
+               {% endfor %} 
+           </tbody>
+         </table>
+       </div>		     
+	       </tbody>
+    </table>
+			     </th>
+	           </tr>
+	         </tbody>
+	       </table>
+	    </div> 
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+        <div style="padding-top:50px; text-align:center;">
+              <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+        </div>          
+       </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

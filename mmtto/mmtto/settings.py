@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'messenger',
     'pages.apps.PagesConfig',
     'profiles',
+    'monitoreo.apps.MonitoreoConfig',
+    'inventario.apps.InventarioConfig',
 ]
 
 MIDDLEWARE = [

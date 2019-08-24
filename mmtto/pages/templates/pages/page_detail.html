@@ -12,6 +12,9 @@
           {{page.content|safe}}
           {% if request.user.is_staff %}
             <p><a href="{% url 'pages:update' page.id %}">Editar</a></p>
+            <div class="col-lg-3 col-md-4 offset-lg-1">
+                <img class="img-fluid" src="{{page.image.url}}" alt="">
+            </div>
           {% endif %}
         </div>
       </div>

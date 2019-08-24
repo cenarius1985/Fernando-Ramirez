@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
+<div class="container">
+  <div style="padding-top:50px; text-align:center;">
+    <h1>INVENTARIO DE EQUIPOS CRITICOS:</h1>
+    <h1>EQUIPOS DE MONITORIZACIÓN HEMODINÁMICAS</h1>
+  <div class="container">
+       <div class="row text-center">
+         <table width="100%" border="2">
+           <tbody>
+                <tr>
+               <th scope="row" bgcolor="#00FF00" >Ver</th>
+					        <td bgcolor="#00FF00"><b>Servicio</b></td>
+                  <td bgcolor="#00FF00"><b>clase</b></td>
+                  <td bgcolor="#00FF00"><b>subclase</b></td>
+                  <td bgcolor="#00FF00"><b>Nombre_equipo</b></td>
+                  <td bgcolor="#00FF00"><b>marca</b></td>
+                  <td bgcolor="#00FF00"><b>modelo</b></td>
+                  <td bgcolor="#00FF00"><b>Serie</b></td>
+                  <td bgcolor="#00FF00"><b>inventario</b></td>               
+				   </tr>
+               {% for article in object_list|dictsort:"id" reversed %}
+               <tr>
+               <th scope="row"><a href="{% url 'monitores:monitores' %}">Ver</a></th>
+                  <td>{{article.servicio}}</td>
+                  <td>{{article.clase}}</td>
+                  <td>{{article.subclase}}</td>
+                  <td>{{article.nombre_equipo}}</td>
+                  <td>{{article.marca}}</td>
+                  <td>{{article.modelo}}</td>
+                  <td>{{article.serie}}</td>
+                  <td>{{article.inventario}}</td>               
+				   </tr>
+               {% empty %}
+                  <li>No articles yet.</li>
+               {% endfor %}
+           </tbody>
+         </table>
+       </div>		     
+	       </tbody>
+    </table>  
+			     </th>
+	           </tr>
+	         </tbody>
+	       </table>
+	    </div>
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+        <div class="jumbotron jumbotron-fluid text-center">
+             <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+        </div>
+       </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
