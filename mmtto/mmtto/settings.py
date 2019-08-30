@@ -45,6 +45,14 @@ INSTALLED_APPS = [
     'profiles',
     'monitoreo.apps.MonitoreoConfig',
     'inventario.apps.InventarioConfig',
+    'anestesia.apps.AnestesiaConfig',
+    'ambulancia.apps.AmbulanciaConfig',
+    'ventilador.apps.VentiladorConfig',
+    'desfibrilador.apps.DesfibriladorConfig',
+    'incubadora.apps.IncubadoraConfig',
+    'oximetro.apps.OximetroConfig',
+    'vital.apps.VitalConfig',
+    'externo.apps.ExternoConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,13 +1,24 @@
 from .forms import UserCreationFormWithEmail, ProfileForm, EmailForm
 from django.views.generic import CreateView
 from django.views.generic.edit import UpdateView
+from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django import forms
 from .models import Profile
 
-# Create your views here.
+class StaffRequiredMixin(object):
+    """
+    Este mixin requerirá que el usuario sea miembro del staff
+    """
+    @method_decorator(staff_member_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(StaffRequiredMixin, self).dispatch(request, *args, **kwargs)
+
+
+
+@method_decorator(staff_member_required, name='dispatch')
 class SignUpView(CreateView):
     form_class = UserCreationFormWithEmail
     template_name = 'registration/signup.html'

@@ -1,0 +1,86 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+{% include 'externo/includes/externo_menu.html' %}
+<div class="container">
+  <div style="padding-top:20px; text-align:center;">
+    <h1>CONTROL DE MANTENIMIENTO:</h1>
+  <div class="container">
+       <div class="row text-center">
+         <table width="100%" border="2">
+           <tbody>
+                <tr>
+               <th scope="row" bgcolor="#00FF00" >Ver</th>
+					        <td bgcolor="#00FF00"><b>Fecha</b></td>
+                  <td bgcolor="#00FF00"><b>Unidad</b></td>
+                  <td bgcolor="#00FF00"><b>Nombre</b></td>
+                  <td bgcolor="#00FF00"><b>Marca</b></td>
+                  <td bgcolor="#00FF00"><b>N° Inventario</b></td>
+                  <td bgcolor="#00FF00"><b>N° Orden Trabajo</b></td>
+                  <td bgcolor="#00FF00"><b>Empresa</b></td>
+                  <td bgcolor="#00FF00"><b>Critico/Relevante</b></td>
+                            
+				   </tr>
+               {% for article in object_list|dictsort:"id" reversed %}
+               <tr>
+               <th scope="row"><a href="{% url 'matenimientoexterno' article.id %}">Ver</a></th>
+                  <td>{{article.Fecha|truncatechars:"15"}}</td>
+                  <td>{{article.Unidad|truncatechars:"15"}}</td>
+                  <td>{{article.Nombre_Equipo|truncatechars:"15"}}</td>
+                  <td>{{article.Marca|truncatechars:"15"}}</td>
+                  <td>{{article.Inventario|truncatechars:"10"}}</td>
+                  <td>{{article.Numero|truncatechars:"10"}}</td>
+                  <td>{{article.Empresa|truncatechars:"10"}}</td>
+                  <td>{{article.Tipo_Mantenimiento|truncatechars:"10"}}</td>
+                   
+                  
+				   </tr>
+               {% empty %}
+                  <li>No articles yet.</li>
+               {% endfor %}
+           </tbody>
+         </table>
+       </div>		     
+	       </tbody>
+    </table>  
+			     </th>
+	           </tr>
+	         </tbody>
+	       </table>
+      </div>
+      <!-- #############################Paginacion################################### -->
+      <font size="5">
+      <nav>
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                {% endif %}
+    
+                {% for i in paginator.page_range %}
+                    <li {% if page_obj.number == i %} class="active" {% endif %}>
+                        <a href="?page={{i}}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+    
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+        </nav>
+        </font>
+      <!-- #############################Termino de paginacion################################### -->
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+          <div style="padding-top:10px; text-align:center;">
+             <h4>EQUIPOS MEDICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+        </div>
+       </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

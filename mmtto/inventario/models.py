@@ -13,7 +13,7 @@ class inventario(models.Model):
     inventario = models.CharField(max_length=100, verbose_name='Numero Inventario')
     valor = models.CharField(max_length=100, verbose_name='Valor el Equipo')
     fecha= models.DateField(default=datetime.date.today,verbose_name='Fecha de Instalacion')
-    vida_util= models.IntegerField(max_length=100,verbose_name='Vida Util')
+    vida_util= models.IntegerField(verbose_name='Vida Util')
 ######################################################################################
     Econtrato = (('ARRIENDO','Arriendo'),('COMODATO','Comodato'),('PROPIO','Propio'))
     contrato = models.CharField(max_length=10,choices=Econtrato, default='PROPIO', verbose_name='Tipo de Contrato')
@@ -24,13 +24,12 @@ class inventario(models.Model):
     tipo = (('C','Critico'),('A','Apoyo'))
     critico_apoyo = models.CharField(max_length=1,choices= tipo, default='A', verbose_name='Critico/Apoyo')
 ######################################################################################      
-    frecuencia = models.IntegerField(max_length=10,verbose_name='Frecuencia de Mantenimiento')
+    frecuencia = models.IntegerField(verbose_name='Frecuencia de Mantenimiento')
     empresa = models.CharField(max_length=100, verbose_name='Nombre de la Empresa')
     rut = models.CharField(max_length=15, verbose_name='RUT de la Empresa')
     garantia_inicio = models.DateField(default=datetime.date.today,verbose_name='Fecha de Inicio de la Garantia')
     garantia_final = models.DateField(default=datetime.date.today,verbose_name='Fecha de Inicio de Termino')
-    fecha_baja = models.DateField(default=datetime.date.today,verbose_name='Fecha de Baja')
-    mantenciones_realizadas = models.IntegerField(max_length=10,verbose_name='Numero de Mantenciones')
+    fecha_baja = models.CharField(max_length=10,verbose_name='Fecha de Baja', blank=True, null= True)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
     def __str__(self):

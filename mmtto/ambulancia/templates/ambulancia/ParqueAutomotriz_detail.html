@@ -1,0 +1,202 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
+{% block content %}
+{% include 'ambulancia/includes/ParqueAutomotriz_menu.html' %}
+<div class="container">
+<form method="post">{% csrf_token %}
+    <div style="padding-top:20px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>PARQUE AUTOMOTRIZ</p>
+       <p>AMBULANCIAS</p>
+		<label for="date">Fecha{{object.fecha}}</label>
+	</div>
+	
+<div class="container" >
+		<div class="row text-center">
+			<table width="100%" border="2">
+			<tbody>
+			<th scope="row">&nbsp;<p>Servicio</p></th>
+				<td>&nbsp;<p>	
+					{{object.Servicio}}
+				</p></td>
+					<th scope="row">&nbsp;<p>KM Programado</p></th>
+					<td>&nbsp;
+					{{object.km_programado}}
+					</td>
+				<tr>
+					<th scope="row">&nbsp;<p>Patente</p>
+					</th>
+					<td>{{object.Patente}}				</td>
+					<th scope="row">&nbsp;<p>KM Realizado</p>&nbsp;
+					</th>
+					<td>{{object.km_real}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row">&nbsp;<p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row">&nbsp;<p>Proximo KM Programado</p></th>
+				<td>{{object.proximo_cambio}}</td>
+				</tr>
+				<div style="padding-top:20px; text-align:center;"></div>
+			</tbody>
+			</table>
+		</div>	
+
+
+		<div style="padding-top:20px; text-align:center;">
+				
+		</div>	
+
+
+
+
+
+
+		<div class="row">
+			<table width="100%" border="1">
+				<tbody>
+				<tr>
+					<th scope="row"><table width="100%" border="1">
+					<tbody>
+						<tr>
+						<th scope="row" width="90%"><p>Cambio de Aceite de Motor</p></th>
+						<td>{{object.pauta1}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Aceite</p></th>
+						<td> {{object.pauta2}} </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtros de Aire Motor</p></th>
+						<td> {{object.pauta3}}  </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Polen.</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Petróleo </p></th>
+						<td>{{object.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Petróleo R.</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Niveles</p></th>
+						<td>{{object.pauta7}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Pastillas de Freno</p></th>
+						<td>{{object.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Aceite de Caja</p></th>
+						<td>{{object.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Aceite de Motor.</p></th>
+						<td> {{object.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Frenos </p></th>
+						<td>{{object.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Frenos de Seguridad</p></th>
+						<td>{{object.pauta12}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Cinturones de Seguridad</p></th>
+						<td>{{object.pauta13}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Luces Internas</p></th>
+						<td>{{object.pauta14}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Tren Delantero</p></th>
+						<td>{{object.pauta15}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Tren Trasero/p></th>
+						<td>{{object.pauta16}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Correas</p></th>
+						<td>{{object.pauta17}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Movil Operativo</p></th>
+						<td>{{object.pauta18}}</td>
+						</tr>
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            </div>
+					<table width="100%" border="2">
+						<tbody>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td>&nbsp;<p>Nombre</p></td>
+							<td>&nbsp;<p>Firma</p></td>
+							<td>&nbsp;<p>Timbre</p></td>
+						</tr>
+						<tr>
+							<th scope="row" width="20%">&nbsp;<p>Tecnico 1</p></th>
+							<td>{{object.tecnico1}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Tecnico 2</p></th>
+							<td>{{object.tecnico2}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Responsable de MMTTO</p></th>
+							<td>{{object.responsable}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						</tbody>
+					</table>
+					<table width="100%" border="2">
+			<tbody>
+      <div style="padding-top:10px; text-align:center;">
+			<p>OBSERVACIONES</p>
+      </div>
+      
+				<tr>
+				{{object.observacion}}
+				</tr>
+			</tbody>
+		</table>
+					</th>
+				</tr>
+				</tbody>
+			</table>
+			</div>
+	  <div style="padding-top:30px; text-align:center;"></div>    		
+</div>
+</form> 
+		
+      
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3" style="padding-top:20px; text-align:center;">
+             <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+       </div>
+    </div>
+  
+  </div>
+  </div>
+</div>
+{% endblock %}

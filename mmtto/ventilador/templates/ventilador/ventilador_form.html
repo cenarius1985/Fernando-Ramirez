@@ -1,0 +1,169 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
+{% block content %}
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
+<div class="container">
+<form method="post">{% csrf_token %}
+    <div style="padding-top:20px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>EQUIPOS DE SOPORTE VITAL</p>
+       <p>VENTILADOR MECANICO</p>
+		<label for="date">Fecha{{form.fecha}}</label>
+	</div>
+	
+	<div class="container">
+		<div class="row text-center">
+			<table width="100%" border="2">
+			<tbody>
+			<th scope="row">&nbsp;<p>Servicio</p></th>
+				<td>&nbsp;<p>	
+					{{form.servicio}}
+				</p></td>
+					<th scope="row">&nbsp;<p>N Inventario</p></th>
+					<td>&nbsp;
+					{{form.inventario}}
+					</td>
+				<tr>
+					<th scope="row">&nbsp;<p>Equipo</p>
+					</th>
+					<td>{{form.nombre}}				</td>
+					<th scope="row">&nbsp;<p>Marca</p>&nbsp;
+					</th>
+					<td>{{form.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row">&nbsp;<p>Modelo</p></th>
+				<td>{{form.modelo}}</td>
+					<th scope="row">&nbsp;<p>N° Serie</p></th>
+				<td>{{form.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			<table width="100%" border="1">
+				<tbody>
+				<tr>
+					<th scope="row"><table width="100%" border="1">
+					<tbody>
+						<tr>
+						<th scope="row" width="95%"><p>Revisión de Funcionamiento, aspecto general</p></th>
+						<td>{{form.pauta1}}</td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Chequeo y revisión de juntas y filtros que por desgaste se recomienda   cambiar cada 2 años</p></th>
+						<td> {{form.pauta2}} </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba de seguridad eléctrica</p></th>
+						<td> {{form.pauta3}}  </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación baterías y cargador</p></th>
+						<td>{{form.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación y medida de parámetros respiratorios</p></th>
+						<td>{{form.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba de seguridad neumática. Válvula de aire de emergencia</p></th>
+						<td>{{form.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación de regulador de oxigeno</p></th>
+						<td>{{form.pauta7}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Control de los accesorios</p></th>
+						<td>{{form.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación de manómetro</p></th>
+						<td>{{form.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba funcionamiento</p></th>
+						<td> {{form.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Ajuste de componentes y calibración</p></th>
+						<td>{{form.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Equipo Operativo</p></th>
+						<td>{{form.pauta12}}</td>
+						</tr>
+						
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            </div>
+					<table width="100%" border="2">
+						<tbody>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td>&nbsp;<p>Nombre</p></td>
+							<td>&nbsp;<p>Firma</p></td>
+							<td>&nbsp;<p>Timbre</p></td>
+						</tr>
+						<tr>
+							<th scope="row" width="10%">&nbsp;<p>Tecnico 1</p></th>
+							<td>{{form.tecnico1}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Tecnico 2</p></th>
+							<td>{{form.tecnico2}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Responsable de MMTTO</p></th>
+							<td>{{form.responsable}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						</tbody>
+					</table>
+					<table width="100%" border="2">
+			<tbody>
+      <div style="padding-top:10px; text-align:center;">
+			<p>OBSERVACIONES</p>
+      </div>
+      
+				<tr>
+				{{form.justificacion}}
+				</tr>
+			</tbody>
+		</table>
+					</th>
+				</tr>
+				</tbody>
+			</table>
+			</div>
+      <div style="padding-top:30px; text-align:center;">
+     		<input type="submit" class="btn btn-primary btn-block" name="submit" id="submit" value="Guardar">
+      </div>
+</form> 
+		
+      
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3" style="padding-top:20px; text-align:center;">
+             <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+       </div>
+    </div>
+  
+  </div>
+  </div>
+</div>
+{% endblock %}

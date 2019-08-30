@@ -6,7 +6,7 @@ class MonitoreoForm(ModelForm):
 
     class Meta:
         model = monitoreo
-        fields = ['responsable','tecnico2','tecnico1','servicio', 'nombre','marca', 'serie','inventario', 'modelo','justificacion','fecha', 'pauta1', 'pauta2', 'pauta3','pauta4','pauta5','pauta6','pauta7','pauta8','pauta9','pauta10','pauta11','pauta12','pauta13','pauta14','pauta15']
+        fields = "__all__"
         widgets = {
         
         'modelo': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Modelo'}),

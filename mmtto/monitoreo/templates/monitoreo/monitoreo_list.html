@@ -4,13 +4,24 @@
 {% block content %}
 {% include 'monitoreo/includes/mantenimiento_menu.html' %}
 <div class="container">
-  <div style="padding-top:50px; text-align:center;">
+  <div style="padding-top:20px; text-align:center;">
        <h1>PAUTAS DE MANTENIMIENTO PREVENTIVO</h1>
+       <h3>EQUIPOS CRITICOS</h3>
    </div> 
   <div class="container">
        <div class="row text-center">
          <table width="100%" border="2">
            <tbody>
+
+          <div style="padding-top:10px; text-align:center;">
+            <form action="{% url 'monitores:filtroinventario' %}" method="GET"> {% csrf_token %}
+              N° Inventario
+              <input type="text" name="buscar" value="" style="width:100 px"></input>
+              <input type="submit" value="BUSCAR"></input>
+            </form>
+            <div style="padding-top:30px; text-align:center;"></div>
+          </div>
+
                 <tr>
                <th scope="row" bgcolor="#00FF00" >Detalle</th>
 					   <td bgcolor="#00FF00"><b>Fecha de Mantenimiento</b></td>
@@ -21,19 +32,37 @@
                   <td bgcolor="#00FF00"><b>N° Inventario</b></td>
                   <td bgcolor="#00FF00"><b>N° Serie</b></td>               
 				   </tr>
-               {% for article in object_list|dictsort:"id" reversed %}
+               {% for article in object_list|dictsort:"fecha" reversed %}
                <tr>
-               <th scope="row"><a href="{% url 'monitores:monitor' article.id article.nombre|slugify %}">Ver</a></th>
+
+                  {% if article.nombre == 'Monitor Multiparametro' %}
+                  <th scope="row"><a href="{% url 'monitores:monitor' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% elif article.nombre == 'Monitor de Signos Vitales' %}
+                  <th scope="row"><a href="{% url 'vitales:vital' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% elif article.nombre == 'Maquina de Anestesia' %}
+                  <th scope="row"><a href="{% url 'anestesias:anestesia' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% elif article.nombre == 'Incubadora Fija/Transporte' %}
+                  <th scope="row"><a href="{% url 'incubadoras:incubadora' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% elif article.nombre ==  'Oximetro de Pulso' %}
+                  <th scope="row"><a href="{% url 'oximetros:oximetro' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% elif article.nombre == 'Ventilador Mecanico' %}
+                  <th scope="row"><a href="{% url 'ventiladores:ventilador' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% elif article.nombre == 'Desfibrilador' %}
+                  <th scope="row"><a href="{% url 'desfibriladores:desfibrilador' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% else %}
+                  <th scope="row"><a href="{% url 'monitores:monitor' article.id article.nombre|slugify %}">Ver</a></th>
+                  {% endif %}
+                  
+                  
 					   <td>{{article.fecha|date}}</td>
-                  <td>{{article.servicio}}</td>
-                  <td>{{article.nombre}}</td>
-                  <td>{{article.marca}}</td>
-                  <td>{{article.modelo}}</td>
-                  <td>{{article.inventario}}</td>
-                  <td>{{article.serie}}</td>               
+                  <td>{{article.servicio|truncatechars:"15"}}</td>
+                  <td>{{article.nombre|truncatechars:"15"}}</td>
+                  <td>{{article.marca|truncatechars:"15"}}</td>
+                  <td>{{article.modelo|truncatechars:"15"}}</td>
+                  <td>{{article.inventario|truncatechars:"15"}}</td>
+                  <td>{{article.serie|truncatechars:"15"}}</td>               
 				   </tr>
-               {% empty %}
-                  <li>No articles yet.</li>
+               
                {% endfor %} 
            </tbody>
          </table>
@@ -44,10 +73,35 @@
 	           </tr>
 	         </tbody>
 	       </table>
-	    </div> 
+      </div> 
+       <!-- #############################Paginacion################################### -->
+       <font size="5">
+        <nav>
+          {% if is_paginated %}
+              <ul class="pagination">
+                  {% if page_obj.has_previous %}
+                      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                  {% endif %}
+      
+                  {% for i in paginator.page_range %}
+                      <li {% if page_obj.number == i %} class="active" {% endif %}>
+                          <a href="?page={{i}}">{{ i }}</a>
+                      </li>
+                  {% endfor %}
+      
+                  {% if page_obj.has_next %}
+                      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                  {% endif %}
+              </ul>
+          {% endif %}
+          </nav>
+          </font>
+        <!-- #############################Termino de paginacion################################### -->
+     
+    
      <div class="row">
         <div class="text-center col-lg-6 offset-lg-3">
-        <div style="padding-top:50px; text-align:center;">
+        <div style="padding-top:10px; text-align:center;">
               <h4>EQUIPOS CRITICOS</h4>
              <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
         </div>          
@@ -56,4 +110,13 @@
   </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 {% endblock %}
