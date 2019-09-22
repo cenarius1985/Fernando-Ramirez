@@ -1,0 +1,25 @@
+
+{% if request.user.is_staff %}
+<!-- Navbar -->
+{% load static %}
+
+{% if request.user.is_staff %}
+<!-- Navbar (sit on top) -->
+<div style="margin:-2.5% 0;" class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a><b>FILTRO</b></a>
+    <a  href="{% url 'monitores:monitores' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Todos</a>
+    <a href="{% url 'monitores:filteroximetro' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Oximetro de Pulso</a>
+    <a href="{% url 'monitores:filtermonitor' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> M.Multiparametro</a>
+    <a href="{% url 'monitores:filtervital' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> M.Signos Vitales</a>
+    <a href="{% url 'monitores:filterventilador' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Ventilador M.</a>
+    <a href="{% url 'monitores:filterdesfibrilador' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Desfibrilador</a>
+    <a href="{% url 'monitores:filterincubadora' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Incubadora</a>
+    <a href="{% url 'ambulancias:listaambulancia' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Ambulancias</a>
+    <a href="{% url 'monitores:filtermonitoranestesia' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> M.Anestesia</a>
+    
+  </div>
+  
+{% endif %}
+
+{% endif %}

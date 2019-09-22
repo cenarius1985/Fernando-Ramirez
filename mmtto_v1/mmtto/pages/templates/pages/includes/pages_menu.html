@@ -1,0 +1,15 @@
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link href="{% static 'pages/css/custom_ckeditor.css' %}" rel="stylesheet">
+{% if request.user.is_staff %}
+<!-- Navbar (sit on top) -->
+<div style="margin:-2.5% 0;" class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a><b>ADMINISTRAR PAGINAS</b></a>
+    <a  href="{% url 'pages:create' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Crear Pagina</a>
+    <a href="{% url 'pages:pages' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Listar Paginas</a>
+    </a>
+  </div>
+
+{% endif %}

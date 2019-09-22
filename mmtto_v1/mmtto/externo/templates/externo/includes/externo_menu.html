@@ -1,0 +1,18 @@
+{% if request.user.is_staff %}
+<!-- Navbar -->
+{% load static %}
+
+{% if request.user.is_staff %}
+<!-- Navbar (sit on top) -->
+<div style="margin:-2.5% 0;" class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a><b>FILTRO</b></a>
+    <a  href="{% url 'externolistview' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Todos</a>
+    <a href="{% url 'createexterno' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Ingresar MMTTO</a>
+    
+  </div>
+  
+
+{% endif %}
+
+{% endif %}
