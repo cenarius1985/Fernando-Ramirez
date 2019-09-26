@@ -66,7 +66,7 @@ class FiltroMonitoreoListView(ListView):
         if filter_val == "":
             return monitoreo.objects.all()
         else:
-            queryset =  monitoreo.objects.filter(inventario= filter_val)
+            queryset =  monitoreo.objects.filter(inventario__contains= filter_val)
             return queryset
 
 ################Termino de Filtros#######################
