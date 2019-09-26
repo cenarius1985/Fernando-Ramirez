@@ -1,0 +1,72 @@
+﻿# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+
+# Auth redirects
+# LOGIN_REDIRECT_URL = 'pages:pages'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Emails
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+else:
+    # Aquí hay que configurar un email real para producción
+    pass
+
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+##########################################################
+
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'bd_mmto',
+      'HOST': 'localhost',
+      'PORT': '3306',
+      'USER': 'Fernando',
+      'PASSWORD': 'hRcpguODijD2Uxel'
+  }
+}
+##########################################################
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
+###########################################################
+set "MOD_WSGI_APACHE_ROOTDIR=C:\wamp64\bin\apache\apache2.4.39"
+pip install mod_wsgi
+mod_wsgi-express module-config
+################################httpd.conf########################
+LoadModule wsgi_module "c:/python37/lib/site-packages/mod_wsgi/server/mod_wsgi.cp37-win_amd64.pyd"
+WSGIScriptAlias / "c:/wamp64/www/mmtto/mmtto/wsgi.py"
+LoadFile "c:/python37/python37.dll"
+WSGIPythonHome "c:/python37"
+WSGIPythonPath "c:/wamp64/www/mmtto"
+
+Alias /media/ c:/wamp64/www/mmtto/media/
+Alias /static/ c:/wamp64/www/mmtto/static/
+
+<Directory c:/wamp64/www/mmtto/static>
+    Require all granted
+</Directory>
+<Directory c:/wamp64/www/mmtto/media>
+    Require all granted
+</Directory>
+<Directory "c:/wamp64/www/mmtto">
+    <Files wsgi.py>
+	Require all granted
+    </Files>
+</Directory>
+
+
+
+
+
+
+
+
+

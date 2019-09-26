@@ -1,0 +1,6 @@
+mysqldump -u root -p nombre_base_de_datos > fichero.sql
+
+
+mysqldump.exe -u dios --all-databases > C:\laragon\tmp\alldb.sql
+
+mysqldump.exe -u root --all-databases > C:\laragon\tmp\alldb.sql
