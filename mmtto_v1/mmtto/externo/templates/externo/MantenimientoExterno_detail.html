@@ -1,7 +1,8 @@
-{% extends 'adminlte/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 {% block title %}Inicio{% endblock %}
 {% block content %}
+{% include 'externo/includes/externo_menu.html' %}
 <div class="container">
   <div style="padding-top:20px; text-align:center;">
     <h1>{{object.Nombre_Equipo|upper}}</h1>
@@ -80,6 +81,7 @@
                   <td align="left">&nbsp;{{object.Fecha_Equipo_Baja}}</td>
                 </tr>
                 <tr>
+
                     {% if object.Adjuntar_Archivo %}
                     <th scope="row">&nbsp;Pauta</th>
                     <td >&nbsp;<a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
@@ -92,7 +94,10 @@
       </div>
       
      <div class="row">
-        <div class="text-center col-lg-6 offset-lg-3"></div>
+        <div class="text-center col-lg-6 offset-lg-3">
+             <h4>EQUIPOS MEDICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+       </div>
     </div>
   </div>
   </div>

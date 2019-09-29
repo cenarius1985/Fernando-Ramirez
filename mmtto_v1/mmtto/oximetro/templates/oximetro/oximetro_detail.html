@@ -1,9 +1,10 @@
-{% extends 'adminlte/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
-<div class="container" style="margin:-4.5% 0;">
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
+<div class="container">
   <div style="padding-top:1px; text-align:center;">
        <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
        <p>EQUIPOS DE MONITORIZACIÓN HEMODINÁMICAS</p>
@@ -13,7 +14,7 @@
 
 	<div class="container" >
 		<div class="row text-center" >
-			<table width="90%" border="2" >
+			<table width="100%" border="2" >
 			<tbody>
 			<th scope="row">&nbsp;<p>Servicio</p></th>
 				<td>&nbsp;<p>	
@@ -43,7 +44,7 @@
 			</table>
 		</div>	
 		<div class="row" style="padding-top:20px;">
-			<table width="90%" border="1">
+			<table width="100%" border="1">
 				<tbody>
 				<tr>
 					<th scope="row"><table width="100%" border="1">
@@ -111,28 +112,34 @@
 					</tbody>
 					</table>
 						<div style="padding-top:20px;"></div>
-						<table width="100%" border="2">
-							<tbody>
-							<tr>
-								<th width="10%" scope="row">&nbsp;</th>
-								<td width="40%" >&nbsp;<p>Nombre</p></td>
-								<td width="20%">&nbsp;<p>Firma</p></td>
-								<td width="20%">&nbsp;<p>Timbre</p></td>
-							</tr>
-							<tr>
-								<th scope="row">&nbsp;<p>Tecnico 1</p></th>
-								<td>{{object.tecnico1}}</td>
-								<td><img src="{% static 'core/img/firma1.png' %}" width="70%" height="30%"></td>
-								<td><img src="{% static 'core/img/timbre1.jpg' %}" width="50%" height="10%"></td>
-							</tr>
-							<tr>
-								<th scope="row">&nbsp;<p>Responsable de MMTTO</p></th>
-								<td>{{object.responsable}}</td>
-								<td><img src="{% static 'core/img/firma1.png' %}" width="70%" height="30%" align="center"></td>
-								<td><img src="{% static 'core/img/timbre1.jpg' %}" width="50%" height="10%" align="center"></td>
-							</tr>
-							</tbody>
-						</table>
+					<table width="100%" border="2">
+						<tbody>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td>&nbsp;<p>Nombre</p></td>
+							<td>&nbsp;<p>Firma</p></td>
+							<td>&nbsp;<p>Timbre</p></td>
+						</tr>
+						<tr>
+							<th scope="row" width="10%">&nbsp;<p>Tecnico 1</p></th>
+							<td>{{object.tecnico1}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Tecnico 2</p></th>
+							<td>{{object.tecnico2}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Responsable de MMTTO</p></th>
+							<td>{{object.responsable}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						</tbody>
+					</table>
 						<div style="padding-top:10px;"></div>
 					<table width="100%" border="2">
 			<tbody>
@@ -140,16 +147,6 @@
 				<table width="100%" border="1">
 				<p>OBSERVACIONES</P>
 				<td align="left">{{object.justificacion}}</td>
-				
-				<table width="100%" border="2">
-				<div style="padding-top:10px;"></div>
-				<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
-				<tr>
-					<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
-					<td style="height:200px; width:2%"></td>
-					<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
-				</tr>
-				</table>
 				</table>
 				<div style="padding-top:10px;"></div>
 				</tr>
@@ -160,10 +157,15 @@
 				</tbody>
 			</table>
 			<div> 
-			<div style="padding-top:50px;"></div>
-			
+			<div style="padding-top:20px;"></div>
 		</div>
 			</div>
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+			 <div style="padding-top:20px;"></div>		
+             <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+       </div>
     </div>
   </div>
   </div>

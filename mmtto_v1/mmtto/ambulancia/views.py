@@ -24,7 +24,6 @@ class MovilCreate(CreateView):
     model = ParqueAutomotriz
     form_class = AmbulanciaForm
     success_url = reverse_lazy('ambulancias:listaambulancia')
-    
 
 class AmbulanciaDetailView(DetailView):
     model = ParqueAutomotriz

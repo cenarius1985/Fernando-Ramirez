@@ -12,6 +12,7 @@ class ParqueAutomotriz(models.Model):
     observacion = models.TextField()
     fecha = models.DateField(default=datetime.date.today)
     tecnico1 = models.CharField(max_length=255, blank=True)
+    tecnico2 = models.CharField(max_length=255, blank=True)
     responsable = models.CharField(max_length=255, blank=True)
     km_anterior = models.CharField(max_length=100, blank=True)
     proximo_cambio = models.CharField(max_length=100, blank=True)

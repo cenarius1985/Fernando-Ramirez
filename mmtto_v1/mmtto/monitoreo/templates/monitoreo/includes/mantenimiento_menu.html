@@ -1,25 +1,52 @@
-
-{% if request.user.is_staff %}
-<!-- Navbar -->
 {% load static %}
-
 {% if request.user.is_staff %}
-<!-- Navbar (sit on top) -->
-<div style="margin:-2.5% 0;" class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a><b>FILTRO</b></a>
-    <a  href="{% url 'monitores:monitores' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Todos</a>
-    <a href="{% url 'monitores:filteroximetro' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Oximetro de Pulso</a>
-    <a href="{% url 'monitores:filtermonitor' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> M.Multiparametro</a>
-    <a href="{% url 'monitores:filtervital' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> M.Signos Vitales</a>
-    <a href="{% url 'monitores:filterventilador' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Ventilador M.</a>
-    <a href="{% url 'monitores:filterdesfibrilador' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Desfibrilador</a>
-    <a href="{% url 'monitores:filterincubadora' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Incubadora</a>
-    <a href="{% url 'ambulancias:listaambulancia' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>Ambulancias</a>
-    <a href="{% url 'monitores:filtermonitoranestesia' %}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> M.Anestesia</a>
-    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <span >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="{% url 'monitores:monitores' %}">Todos</a> 
+               <a class="dropdown-item" href="{% url 'monitores:filteroximetro' %}">Oximetro de Pulso</a>
+               <a class="dropdown-item" href="{% url 'monitores:filtermonitor' %}">M.Multiparametro</a>
+               <a class="dropdown-item" href="{% url 'monitores:filtervital' %}">M.Signos Vitales</a>
+               <a class="dropdown-item" href="{% url 'monitores:filteranestesia' %}">M.Anestesia</a>
+               <a class="dropdown-item" href="{% url 'monitores:filterventilador' %}">Ventilador M.</a>
+               <a class="dropdown-item" href="{% url 'monitores:filterdesfibrilador' %}">Desfibrilador</a>
+               <a class="dropdown-item" href="{% url 'monitores:filterincubadora' %}">Incubadora</a>
+            </div>
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nep">
+      <ul class="navbar-nav mr-auto">
+       
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'oximetros:create_oximetro' %}">Oximetro de Pulso<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'monitores:create1' %}">M.Multiparametro</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'vitales:create_vital' %}">M.Signos Vitales</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'anestesias:create_anestesia' %}">M.Anestesia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ventiladores:create_ventilador' %}">Ventilador M.</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'desfibriladores:create_desfibrilador' %}">Desfibrilador</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'incubadoras:create_incubadora' %}">Incubadora</a>
+        </li>
+      
+      </ul>
+    </div>
   </div>
-  
-{% endif %}
-
+</nav>
 {% endif %}

@@ -12,6 +12,7 @@ class monitoreo(models.Model):
     justificacion = models.CharField(max_length=255)
     fecha = models.DateField(default=datetime.date.today)
     tecnico1 = models.CharField(max_length=255)
+    tecnico2 = models.CharField(max_length=255)
     responsable = models.CharField(max_length=255)
 ####################################################################################
     SI_NO = (('SI','Si'),('NO','No'))

@@ -23,7 +23,7 @@ class MantenimientoExterno(models.Model):
     Horas = models.PositiveSmallIntegerField(verbose_name="Horas Fuera de Servicio")
     Detalle = models.TextField(verbose_name="Detalle")	
     Observaciones = models.TextField(verbose_name="Observaciones")
-    Fecha_Equipo_Operativo = models.CharField(max_length=10,  verbose_name="Fecha de Equipo Operativo", blank=True)
+    Fecha_Equipo_Operativo = models.CharField(max_length=10,  verbose_name="Fecha de Equipo Operativo")
     Fecha_Equipo_Baja = models.CharField(max_length=10,  verbose_name="Fecha de Baja del Equipo", blank=True)
 ####################################################################################
     Adjuntar_Archivo = models.FileField(verbose_name='Adjuntar Archivo', upload_to='mantenimiento', blank=True)

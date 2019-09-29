@@ -1,21 +1,21 @@
-{% extends 'adminlte/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 {% block title %}Inicio{% endblock %}
-
+{% include 'monitoreo/includes/mantenimiento_menu.html' %}
 {% block content %}
-
-<div class="container" style="margin:-6.5% 0;">
+{% include 'ambulancia/includes/ParqueAutomotriz_menu.html' %}
+<div class="container">
 <form method="post">{% csrf_token %}
     <div style="padding-top:20px; text-align:center;">
        <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
        <p>PARQUE AUTOMOTRIZ</p>
-       <p>AMBULANCIAS MERCEDES BENZ</p>
-		<label for="date">{{object.fecha}}</label>
+       <p>AMBULANCIAS</p>
+		<label for="date">Fecha{{object.fecha}}</label>
 	</div>
 	
 <div class="container" >
 		<div class="row text-center">
-			<table width="90%" border="2">
+			<table width="100%" border="2">
 			<tbody>
 			<th scope="row">&nbsp;<p>Servicio</p></th>
 				<td>&nbsp;<p>	
@@ -50,8 +50,13 @@
 				
 		</div>	
 
+
+
+
+
+
 		<div class="row">
-			<table width="90%" border="1">
+			<table width="100%" border="1">
 				<tbody>
 				<tr>
 					<th scope="row"><table width="100%" border="1">
@@ -135,60 +140,63 @@
 						<div style="padding-top:10px; text-align:center;">
 			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
             </div>
-			<table width="100%" border="2">
-				<tbody>
+					<table width="100%" border="2">
+						<tbody>
+						<tr>
+							<th scope="row">&nbsp;</th>
+							<td>&nbsp;<p>Nombre</p></td>
+							<td>&nbsp;<p>Firma</p></td>
+							<td>&nbsp;<p>Timbre</p></td>
+						</tr>
+						<tr>
+							<th scope="row" width="20%">&nbsp;<p>Tecnico 1</p></th>
+							<td>{{object.tecnico1}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Tecnico 2</p></th>
+							<td>{{object.tecnico2}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th scope="row">&nbsp;<p>Responsable de MMTTO</p></th>
+							<td>{{object.responsable}}</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						</tbody>
+					</table>
+					<table width="100%" border="2">
+			<tbody>
+      <div style="padding-top:10px; text-align:center;">
+			<p>OBSERVACIONES</p>
+      </div>
+      
 				<tr>
-					<th width="10%" scope="row">&nbsp;</th>
-					<td width="40%" >&nbsp;<p>Nombre</p></td>
-					<td width="20%">&nbsp;<p>Firma</p></td>
-					<td width="20%">&nbsp;<p>Timbre</p></td>
+				{{object.observacion}}
 				</tr>
-				<tr>
-					<th scope="row">&nbsp;<p>Tecnico 1</p></th>
-					<td>{{object.tecnico1}}</td>
-					<td><img src="#" width="70%" height="30%"></td>
-					<td><img src="#" width="50%" height="10%"></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;<p>Responsable de MMTTO</p></th>
-					<td>{{object.responsable}}</td>
-					<td><img src="#" width="70%" height="30%" align="center"></td>
-					<td><img src="#" width="50%" height="10%" align="center"></td>
+			</tbody>
+		</table>
+					</th>
 				</tr>
 				</tbody>
 			</table>
-					<table width="100%" border="2">
-						<tbody>
-							<tr>
-							<table width="100%" border="1">
-							<p>OBSERVACIONES</P>
-							<td align="left">{{object.observacion}}</td>
-							
-							<table width="100%" border="2">
-							<div style="padding-top:10px;"></div>
-							<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
-							<tr>
-								<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
-								<td style="height:200px; width:2%"></td>
-								<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
-							</tr>
-							</table>
-							</table>
-							<div style="padding-top:10px;"></div>
-							</tr>
-						</tbody>
-					</table>
-								</th>
-							</tr>
-							</tbody>
-						</table>
-						<div> 
-						<div style="padding-top:50px;"></div>
-						
-					</div>
-						</div>
-				</div>
-			  </div>
-			  </div>
 			</div>
-			{% endblock %}
+	  <div style="padding-top:30px; text-align:center;"></div>    		
+</div>
+</form> 
+		
+      
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3" style="padding-top:20px; text-align:center;">
+             <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+       </div>
+    </div>
+  
+  </div>
+  </div>
+</div>
+{% endblock %}

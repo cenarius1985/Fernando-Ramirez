@@ -1,16 +1,16 @@
-{% extends 'adminlte/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 {% block title %}Inicio{% endblock %}
 {% block content %}
-{% include 'monitoreo/includes/mantenimiento_menu.html' %}
-<div class="container" style="margin:-2.5% 0;">
+{% include 'ambulancia/includes/ParqueAutomotriz_menu.html' %}
+<div class="container">
   <div style="padding-top:20px; text-align:center;">
        <h1>PAUTAS DE MANTENIMIENTO PREVENTIVO</h1>
        <h3>PARQUE AUTOMOTRIZ</h3>
    </div> 
   <div class="container">
        <div class="row text-center">
-         <table width="90%" border="2">
+         <table width="100%" border="2">
            <tbody>
 
           <div style="padding-top:10px; text-align:center;">
@@ -32,11 +32,11 @@
 					        <td>{{article.fecha|date}}</td>
                   <td>{{article.Servicio|truncatechars:"15"}}</td>
                   <td>{{article.Patente|truncatechars:"15"}}</td>
-                  <td><p>Mercedes Benz</p></td>
+                  <td>{{article.marca|truncatechars:"15"}}</td>
                   <td>{{article.modelo|truncatechars:"15"}}</td>
                   <td>{{article.proximo_cambio|truncatechars:"15"}}</td>
                   <td>{{article.km_real|truncatechars:"15"}}</td>               
-				       </tr>
+				   </tr>
                {% empty %}
                   <li>No articles yet.</li>
                {% endfor %} 
@@ -76,7 +76,12 @@
      
     
      <div class="row">
-        
+        <div class="text-center col-lg-6 offset-lg-3">
+        <div style="padding-top:10px; text-align:center;">
+              <h4>EQUIPOS CRITICOS</h4>
+             <p>Copyright &copy; 2019 &middot; todos los derechos reservados&middot; <a href="#" >www.hcv.cl</a></p>
+        </div>          
+       </div>
     </div>
   </div>
   </div>

@@ -20,6 +20,4 @@ class ExternoForm(ModelForm):
         'Observaciones': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Justificacion'}),
         'Detalle': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Detalles'}), 
         'Fecha': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
-        'Fecha_Equipo_Operativo': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
-        'Fecha_Equipo_Baja': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
         }

@@ -27,23 +27,10 @@ class ExternoListView(ListView):
     
 class ExternoDetailView(DetailView):
     model = MantenimientoExterno
-    template_name= 'externo/MantenimientoExterno_detail.html'
+    form_class = ExternoForm
 
 @method_decorator(staff_member_required, name='dispatch')
 class ExternoCreate(CreateView):
     model = MantenimientoExterno
     form_class= ExternoForm
     success_url = reverse_lazy('externolistview')
-# filtro de busqueda por inventario
-
-class FiltroExternoListView(ListView):
-    model = MantenimientoExterno
-    template_name= 'externo/MantenimientoExterno_list.html'
-    paginate_by = 50
-    def get_queryset(self):
-        filter_val = self.request.GET.get('buscar')
-        if filter_val == "":
-            return MantenimientoExterno.objects.all()
-        else:
-            queryset =  MantenimientoExterno.objects.filter(Inventario= filter_val)
-            return queryset

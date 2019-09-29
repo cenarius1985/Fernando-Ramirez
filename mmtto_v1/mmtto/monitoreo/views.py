@@ -9,8 +9,6 @@ from .models import monitoreo
 from .forms import MonitoreoForm
 from django.shortcuts import get_object_or_404
 
-
-
 class StaffRequiredMixin(object):
     """
     Este mixin requerirá que el usuario sea miembro del staff
@@ -23,6 +21,11 @@ class FilterAmbulanciaListView(ListView):
     model = monitoreo
     paginate_by = 50
     queryset = monitoreo.objects.filter(nombre='Ambulancia')
+
+class FilterAnestesiaListView(ListView):
+    model = monitoreo
+    paginate_by = 50
+    queryset = monitoreo.objects.filter(nombre='Maquina de Anestesia')
 
 class FilterDesfibriladorListView(ListView):
     model = monitoreo
@@ -52,12 +55,6 @@ class FilterMonitoreoListView(ListView):
     model = monitoreo
     paginate_by = 50
     queryset = monitoreo.objects.filter(nombre='Monitor Multiparametro')
-
-class FilterMonitoreoAnestesiaListView(ListView):
-    model = monitoreo
-    paginate_by = 50
-    queryset = monitoreo.objects.filter(nombre='Maquina de Anestesia')
-
 class FiltroMonitoreoListView(ListView):
     model = monitoreo
     paginate_by = 50
@@ -66,7 +63,7 @@ class FiltroMonitoreoListView(ListView):
         if filter_val == "":
             return monitoreo.objects.all()
         else:
-            queryset =  monitoreo.objects.filter(inventario__contains= filter_val)
+            queryset =  monitoreo.objects.filter(inventario= filter_val)
             return queryset
 
 ################Termino de Filtros#######################
