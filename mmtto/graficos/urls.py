@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import HomePageView
+from .views import GraficosView
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
+    path('grafico/', GraficosView.as_view(), name='grafico'),
 
 ]
